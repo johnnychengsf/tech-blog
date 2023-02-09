@@ -1,0 +1,57 @@
+<div id="dashboard-list-post" class="row" style="width:100%;display:block;">
+   {{#each items as |item|}}
+   <section class="card">
+      <div class="card-post" onclick="editPost({{id}});">
+         <div style="float:left;">{{title}}</div>
+         <div style="float:right;">{{format_date updatedAt}} {{format_time updatedAt}}</div>
+      </div>
+   </section>
+    {{/each}}
+</div>
+<div id="dashboard-edit-post" class="row" style="width:100%;display:none;">
+   <div class="dashboard-card">
+      <h2 class="page-title">Edit Post</h2>
+      <form class="form dashboard-form-update">
+         <div class="form-group">
+            <label for="post-id" hidden>id</label>
+            <input type="hidden" id="post-id" value="{{id}}">
+         </div>
+         <div class="form-group">
+            <label for="post-title">Title</label>
+            <input class="form-input" type="text" id="post-title" />
+         </div>
+         <div class="form-group">
+            <label for="post-content">Content:</label>
+            <textarea id="post-content" class="form-textarea" style="width: 100%;" rows="4"></textarea>
+         </div>
+         <div class="form-group">
+            <button id="post-update" class="btn btn-primary" style="width:100%;" type="submit">Update Post</button>
+         </div>
+         <div class="form-group">
+            <button id="post-delete" class="btn btn-primary" style="width:100%;" type="submit">Delete</button>
+         </div>
+      </form>
+   </div>
+</div>
+<div id="dashboard-create-new-post" class="row" style="width:100%;display:none;">
+   <div class="dashboard-card">
+      <h2 class="page-title">Create New Post</h2>
+      <form class="form dashboard-form">
+         <div class="form-group">
+            <label for="post-title">Title</label>
+            <input class="form-input" type="text" id="create-post-title" />
+         </div>
+         <div class="form-group">
+            <label for="post-content">Content:</label>
+            <textarea id="create-post-content" class="form-textarea" style="width: 100%;" rows="4"></textarea>
+         </div>
+         <div class="form-group">
+            <button id="dashboard-new" class="btn btn-primary" style="width:100%;" type="submit">Create</button>
+         </div>
+      </form>
+   </div>
+</div>
+<div class="row" style="width:100%;justify-content:center;">
+   <button class="btn btn-primary" id="new-post">+ New Post</button>
+</div>
+<script src="/js/dashboard.js"></script>

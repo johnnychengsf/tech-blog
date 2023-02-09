@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Tech Blog</title>
+  <link rel="stylesheet" type="text/css" href="/css/jass.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body>
+  <nav>
+    <!-- a href="/">Home</a -->
+    <button id="home" class="btn btn-primary">Home</button>
+    <!-- a href="/dashboard">Dashboard</a -->
+    <button id="dashboard" class="btn btn-primary">dashboard</button>
+    {{#unless loggedIn}}
+    <!-- a href="/login">Login</a -->
+    <button id="login" class="btn btn-primary">Login</button>
+    {{/unless}}
+    <button id="logout" class="btn btn-primary">Logout</button>
+  </nav>
+  <header>
+    <h1>{{headername}}</h1>
+  </header>
+  <main>
+    <div class="blog">
+      {{{body}}}
+    </div>
+  </main>
+  {{#if loggedIn}}
+  <script src="/js/logout.js"></script>
+  <script src="/js/main.js"></script>
+  {{else}}
+  <script src="/js/main.js"></script>
+  {{/if}}
+  
+</body>
+
+</html>
